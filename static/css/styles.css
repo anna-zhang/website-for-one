@@ -13,7 +13,7 @@ a, a:visited {
 
 body {
   text-align: center;
-  background-color: #0D1821;
+  background-color: #FAF7DD;
   color: #FAF7DD;
 }
 
@@ -26,6 +26,7 @@ p {
 .date {
   font-size: 60px;
   font-family: 'Instrument Serif', serif;
+  color: #0D1821;
 }
 
 .event-title {
@@ -63,6 +64,7 @@ p {
   left: 50%;
   transform: translate(-50%, 0); 
   margin-bottom: 30px;
+  color: #0D1821;
 }
 
 .image-container {
@@ -118,7 +120,7 @@ i {
 }
 
 .arrow {
-  color: #FAF7DD;
+  color: #0D1821;
   background: none;
   border: 0;
   cursor: pointer;

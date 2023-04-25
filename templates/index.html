@@ -21,11 +21,11 @@
         <!-- Create a slide for each event -->
         {% for event in events %}
             <div id="slide{{ loop.index - 1 }}" class="slide" style="left: {{ (100 * (loop.index - 1))}}vw; transform: translateX(-{{ 100 * starting_slide}}vw)">
-                {% if event.image_link %}
-                    <div class="image-container">
+                <div class="image-container">
+                    {% if event.image_link %}
                         <img src="{{ event.image_link }}" alt="">
-                    </div>
-                {% endif %}
+                    {% endif %}
+                </div>
                 <div class="slide-wrapper">
                     <!-- <p>Slide {{ loop.index }}</p> -->
 
