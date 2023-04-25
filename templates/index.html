@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>This Day in History</title>
+<link rel="icon" type="image/x-icon" href="../assets/favicon.ico">
+<link rel="stylesheet" href="../static/css/styles.css">
+
+<!-- Google Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fira+Sans+Extra+Condensed:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Inter:wght@100;200;300;400;500;600;700;800;900&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+
+<!-- Bootstrap icons -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css">
+</head>
+<body>
+    <h1 class="date" id="month-and-day">02.28</h1>
+    <div class="slideshow" id="slideshow" startingSlide="{{ starting_slide }}">
+        <!-- Create a slide for each event -->
+        {% for event in events %}
+            <div id="slide{{ loop.index - 1 }}" class="slide" style="left: {{ (100 * (loop.index - 1))}}vw; transform: translateX(-{{ 100 * starting_slide}}vw)">
+                <div class="slide-wrapper">
+                    <!-- <p>Slide {{ loop.index }}</p> -->
+
+                    <!-- Make event title a link if an article exists -->
+                    {% if event.article_link %}
+                        <h3 class="event-title">
+                        {% if (loop.index - 1) == starting_slide %}
+                            <a href="{{ event.article_link }}">{{ event.title }}</a>
+                        {% else %}
+                            <a href="{{ event.article_link }}" tabindex="-1">{{ event.title }}</a>
+                        {% endif %}
+                        </h3>
+                    {% else %}
+                        <h3 class="event-title">{{ event.title }}</h3>
+                    {% endif %}
+                    
+                    {% if event.image_link %}
+                        <div class="image-container">
+                            <img src="{{ event.image_link }}" alt="">
+                        </div>
+                    {% endif %}
+
+                    <p>{{ event.description }}</p>
+
+                </div>
+                <!-- Check if year is BC -->
+                {% if event.year < 0 %}
+                    <h2 class="event-year date">{{ event.year * -1 }} BC</h2>
+                {% else %}
+                    <h2 class="event-year date">{{ event.year }}</h2>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+
+    <!-- Slide navigation arrows -->
+    <div class="arrow-container">
+        <button class="arrow arrow-left"><i class="bi bi-chevron-left" aria-label="Left arrow"></i></button>
+        <button class="arrow arrow-right"><i class="bi bi-chevron-right" aria-label="Right arrow"></i></button>
+    </div>
+
+    <!-- Scripts go at the bottom of your <body> element.-->
+    <script src="../static/js/main.js"></script>
+    <noscript>Unfortunately, your browser does not support JavaScript!</noscript>
+</body>
+</html>

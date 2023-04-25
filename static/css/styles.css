@@ -1,0 +1,160 @@
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+}
+
+
+a, a:visited {
+  color: #E1D2B7;
+}
+
+body {
+  text-align: center;
+  background-color: #22333B;
+  color: white;
+  box-shadow:inset 0px 0px 0px 10px #E1D2B7;
+}
+
+p {
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+}
+
+.date {
+  font-size: 6vw;
+  font-family: 'Inter', sans-serif;
+}
+
+.event-title {
+  font-family: 'Inter', sans-serif;
+  font-size: 2vw;
+  color: #E1D2B7;
+}
+
+#month-and-day {
+  margin-top: 0;
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%, 0%);
+}
+
+.slideshow {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.slide-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); 
+  width: 20vw;
+}
+
+.event-year {
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, 0); 
+  margin-bottom: 0;
+}
+
+.image-container {
+  height: 20vw; /* set the height of the container */
+  overflow: hidden; /* hide any content that overflows the container */
+  margin-bottom: 32px;
+  margin-top: 32px;
+}
+
+.image-container img {
+  width: 100%; /* set the width of the image to 100% of the container */
+  height: 100%; /* set the height of the image to 100% of the container */
+  object-fit: cover; /* fill the container with the image while maintaining its aspect ratio */
+  border-radius: 20px;
+}
+
+
+.slide {
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  top: 0%;
+}
+
+.arrow-container {
+  position: absolute;
+  height: 50px;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.arrow-left {
+  margin-left: 10px;
+}
+.arrow-right {
+  margin-right: 10px;
+}
+@media (min-width: 720px) {
+  .arrow-container {
+    top: 50%;
+    transform: translateY(-50%);
+  }
+}
+
+i {
+  font-size: 32px;
+}
+
+.arrow {
+  background-color: #E1D2B7;
+  color: black;
+  border: 0;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  /* CSS styles for devices with a maximum width of 720px */
+  .slide-wrapper {
+    width: 40vw;
+  }
+  .image-container {
+    height: 40vw; /* set the height of the container */
+    width: 100%;
+    overflow: hidden; /* hide any content that overflows the container */
+  }
+  .event-title {
+    font-size: 3vw;
+  }
+  .date {
+    font-size: 12vw;
+  }
+  .arrow-container {
+    position: fixed;
+    bottom: 0;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  /* CSS styles for devices with a maximum width of 480px */
+  .slide-wrapper {
+    width: 50vw;
+  }
+  .image-container {
+    height: 50vw; /* set the height of the container */
+    width: 100%;
+    overflow: hidden; /* hide any content that overflows the container */
+  }
+  .event-title {
+    font-size: 6vw;
+  }
+  .date {
+    font-size: 16vw;
+  }
+}
