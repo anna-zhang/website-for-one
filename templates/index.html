@@ -28,9 +28,9 @@
                     {% if event.article_link %}
                         <h3 class="event-title">
                         {% if (loop.index - 1) == starting_slide %}
-                            <a href="{{ event.article_link }}">{{ event.title }}</a>
+                            <a href="{{ event.article_link }}" target="_blank" rel="noopener noreferrer">{{ event.title }}</a>
                         {% else %}
-                            <a href="{{ event.article_link }}" tabindex="-1">{{ event.title }}</a>
+                            <a href="{{ event.article_link }}" tabindex="-1" target="_blank" rel="noopener noreferrer">{{ event.title }}</a>
                         {% endif %}
                         </h3>
                     {% else %}
